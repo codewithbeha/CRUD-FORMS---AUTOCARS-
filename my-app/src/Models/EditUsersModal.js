@@ -19,7 +19,8 @@ export class EditUsersModal extends Component{
                 UserId:event.target.UserId.value,
                 Username:event.target.Username.value,
                 Password:event.target.Password.value,
-                Role:event.target.Role.value
+                Role:event.target.Role.value,
+                Status:event.target.Status.values
 
             })
         })

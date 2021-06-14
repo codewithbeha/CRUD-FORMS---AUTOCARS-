@@ -9,14 +9,14 @@ export class Users extends Component{
 
     constructor(props){
         super(props);
-        this.state={deps:[], addModalShow:false, editModalShow:false}
+        this.state={users:[], addModalShow:false, editModalShow:false}
     }
 
     refreshList(){
         fetch('http://localhost:5000/api/users')
         .then(response=>response.json())
         .then(data=>{
-            this.setState({deps:data});
+            this.setState({users:data});
         });
     }
 
@@ -28,7 +28,7 @@ export class Users extends Component{
         this.refreshList();
     }
 
-    deleteEmp(uid){
+    deleteUser(uid){
         if(window.confirm('Are you sure?')){
             fetch('http://localhost:5000/api/users/'+uid,{
                 method:'DELETE',
@@ -40,7 +40,7 @@ export class Users extends Component{
 
     render(){
 
-        const {deps, uid, uname, upassword, urole}=this.state;
+        const {users, uid, uname, upassword, urole}=this.state;
         let addModalClose=()=>this.setState({addModalShow:false});
         let editModalClose=()=>this.setState({editModalShow:false});
         return (
@@ -56,7 +56,7 @@ export class Users extends Component{
                         </tr>
                     </thead>
                     <tbody>
-                        {deps.map(u=>
+                        {users.map(u=>
                             <tr key={u.UserId}>
                                 <td>{u.UserId}</td>
                                 <td>{u.Username}</td>
@@ -71,7 +71,7 @@ export class Users extends Component{
                                             </Button>
 
                                             <Button className="mr-2" variant="danger"
-                                            onClick={()=>this.deleteEmp(u.UserId)}>
+                                            onClick={()=>this.deleteUser(u.UserId)}>
                                                 Delete
                                             </Button>
 

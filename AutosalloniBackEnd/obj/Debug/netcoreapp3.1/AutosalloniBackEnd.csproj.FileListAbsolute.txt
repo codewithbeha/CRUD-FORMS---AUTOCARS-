@@ -45,3 +45,8 @@ F:\AutosalloniProjekti\Autosalloni\AutosalloniBackEnd\obj\Debug\netcoreapp3.1\Au
 F:\AutosalloniProjekti\Autosalloni\AutosalloniBackEnd\obj\Debug\netcoreapp3.1\AutosalloniBackEnd.dll
 F:\AutosalloniProjekti\Autosalloni\AutosalloniBackEnd\obj\Debug\netcoreapp3.1\AutosalloniBackEnd.pdb
 F:\AutosalloniProjekti\Autosalloni\AutosalloniBackEnd\obj\Debug\netcoreapp3.1\AutosalloniBackEnd.genruntimeconfig.cache
+F:\AutosalloniProjekti\Autosalloni\AutosalloniBackEnd\bin\Debug\netcoreapp3.1\Controllers\bin\Debug\netcoreapp3.1\appsettings.Development.json
+F:\AutosalloniProjekti\Autosalloni\AutosalloniBackEnd\bin\Debug\netcoreapp3.1\Controllers\bin\Debug\netcoreapp3.1\appsettings.json
+F:\AutosalloniProjekti\Autosalloni\AutosalloniBackEnd\bin\Debug\netcoreapp3.1\Controllers\bin\Debug\netcoreapp3.1\AutosalloniBackEnd.deps.json
+F:\AutosalloniProjekti\Autosalloni\AutosalloniBackEnd\bin\Debug\netcoreapp3.1\Controllers\bin\Debug\netcoreapp3.1\AutosalloniBackEnd.runtimeconfig.dev.json
+F:\AutosalloniProjekti\Autosalloni\AutosalloniBackEnd\bin\Debug\netcoreapp3.1\Controllers\bin\Debug\netcoreapp3.1\AutosalloniBackEnd.runtimeconfig.json

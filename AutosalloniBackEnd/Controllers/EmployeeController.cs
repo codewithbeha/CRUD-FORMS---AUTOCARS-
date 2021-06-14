@@ -30,7 +30,7 @@ namespace AutosalloniBackEnd.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            string query = @"SELECT UserId,EmployeeName,Department,Birthdate,
+            string query = @"SELECT EmployeeId,UserId,EmployeeName,Department,Birthdate,
                             Country,City,Street,Zip,Phone,PhotoFileName FROM dbo.Employee";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
@@ -51,8 +51,7 @@ namespace AutosalloniBackEnd.Controllers
         [HttpPost]
         public JsonResult Post(Employee emp)
         {
-            string query = @"INSERT INTO dbo.Employee (UserId,EmployeeName,Department,Birthdate,
-                            Country,City,Street,Zip,Phone,PhotoFileName)
+            string query = @"INSERT INTO dbo.Employee (UserId,EmployeeName, Department, Birthdate, Country, City, Street, Zip, Phone, PhotoFileName )
                                                          Values (
                                                           '" + emp.UserId + @"'
                                                          ,'" + emp.EmployeeName + @"'
@@ -84,9 +83,10 @@ namespace AutosalloniBackEnd.Controllers
         public JsonResult Put(Employee emp)
         {
             string query = @"UPDATE dbo.Employee SET
-                 UserId = '" + emp.UserId + @"' 
-                 ,EmployeeName = '" + emp.EmployeeName + @"' 
-                ,Department = '" + emp.Department + @"'
+
+                  UserId = '" + emp.UserId + @"'
+                 ,EmployeeName = '" + emp.EmployeeName + @"'
+                ,Department = '" + emp.Department + @"'  
                 ,Birthdate = '" + emp.Birthdate + @"'
                 ,Country  = '" + emp.Country + @"'
                 ,City  = '" + emp.City + @"'
@@ -94,7 +94,6 @@ namespace AutosalloniBackEnd.Controllers
                 ,Zip = '" + emp.Zip + @"'
                 ,Phone = '" + emp.Phone + @"'
                 ,PhotoFileName = '" + emp.PhotoFileName + @"'
-
 
                  WHERE EmployeeId = " + emp.EmployeeId + @" ";
 
@@ -210,29 +209,6 @@ namespace AutosalloniBackEnd.Controllers
         {
             string query = @"
                              select CityName from dbo.City";
-            DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
-            SqlDataReader sqlDataReader;
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-            {
-                myCon.Open();
-                using (SqlCommand myCommand = new SqlCommand(query, myCon))
-                {
-                    sqlDataReader = myCommand.ExecuteReader();
-                    table.Load(sqlDataReader);
-                    sqlDataReader.Close();
-                    myCon.Close();
-                }
-            }
-            return new JsonResult(table);
-        }
-
-        [Route("GetAllCityNames")]
-
-        public JsonResult GetAllUsersNames()
-        {
-            string query = @"
-                             select Username from dbo.Users";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             SqlDataReader sqlDataReader;

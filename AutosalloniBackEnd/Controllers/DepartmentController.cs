@@ -20,7 +20,7 @@ namespace AutosalloniBackEnd.Controllers
         {
             _configuration = configuration;
         }
-        //GET POST PUT DELETE
+
         [HttpGet]
         public JsonResult Get()
         {

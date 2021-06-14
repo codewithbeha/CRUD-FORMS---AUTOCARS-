@@ -9,14 +9,14 @@ export class Country extends Component{
 
     constructor(props){
         super(props);
-        this.state={deps:[], addModalShow:false, editModalShow:false}
+        this.state={countries:[], addModalShow:false, editModalShow:false}
     }
 
     refreshList(){
         fetch('http://localhost:5000/api/country')
         .then(response=>response.json())
         .then(data=>{
-            this.setState({deps:data});
+            this.setState({countries:data});
         });
     }
 
@@ -28,7 +28,7 @@ export class Country extends Component{
         this.refreshList();
     }
 
-    deleteDep(cid){
+    deleteCountry(cid){
         if(window.confirm('Are you sure?')){
             fetch('http://localhost:5000/api/country'+cid,{
                 method:'DELETE',
@@ -40,7 +40,7 @@ export class Country extends Component{
 
     render(){
 
-        const {deps, cid, cname}=this.state;
+        const {countries, cid, cname}=this.state;
         let addModalClose=()=>this.setState({addModalShow:false});
         let editModalClose=()=>this.setState({editModalShow:false});
         return (
@@ -54,7 +54,7 @@ export class Country extends Component{
                         </tr>
                     </thead>
                     <tbody>
-                        {deps.map(c=>
+                        {countries.map(c=>
                             <tr key={c.CountryId}>
                                 <td>{c.CountryId}</td>
                                 <td>{c.CountryName}</td>
@@ -67,7 +67,7 @@ export class Country extends Component{
                                             </Button>
 
                                             <Button className="mr-2" variant="danger"
-                                            onClick={()=>this.deleteC(c.CountryId)}>
+                                            onClick={()=>this.deleteCountry(c.CountryId)}>
                                                 Delete
                                             </Button>
 

@@ -15,6 +15,5 @@ namespace AutosalloniBackEnd.Models
 
         public string Role { get; set; }
 
-
     }
 }

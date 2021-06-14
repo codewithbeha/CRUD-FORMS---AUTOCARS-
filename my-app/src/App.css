@@ -38,8 +38,9 @@
 }
 */
 .container{
-  margin-bottom: 100px;
-  display: contents;
+  display: flex;
+  margin-top: 5px;
+  position: absolute;
 }
 
 

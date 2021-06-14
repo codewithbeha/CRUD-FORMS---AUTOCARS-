@@ -4,24 +4,40 @@ import {Modal, Button, Row, Col, Form , Image} from 'react-bootstrap';
 export class AddEmpModal extends Component{
     constructor(props){
         super(props);
-        this.state={deps:[]};
+        this.state={deps:[],cities:[],countries:[]};
         this.handleSubmit= this.handleSubmit.bind(this);
         this.handleFileSelected = this.handleFileSelected.bind(this);
     }
     photofilename = "anonymous.png";
     imagesrc= 'http://localhost:5000/api/Photos/'+this.photofilename;
 
+    
+
     componentDidMount(){
+        
         fetch('http://localhost:5000/api/city')
         .then(response=>response.json())
         .then(data=>{
-            this.setState({deps:data});
+            console.log(data);
+            this.setState({...this.state, cities:data});
             
         });
-
-    } 
-
-   
+        fetch('http://localhost:5000/api/country')
+        .then(response=>response.json())
+        .then(data=>{
+            console.log(data);
+            this.setState({...this.state,countries:data});
+            
+        });
+        fetch('http://localhost:5000/api/department')
+        .then(response=>response.json())
+        .then(data=>{
+            
+            console.log(data);
+            this.setState({...this.state,deps:data});
+            
+        });
+    }
 
     handleSubmit(event){
         console.log("DEBUGGING");
@@ -32,8 +48,8 @@ export class AddEmpModal extends Component{
                 'Content-Type':'application/json'
             },
             body:JSON.stringify({
-                //EmployeeId:event.target.EmployeeId.value,
-                UserId:event.target.UserId.value,
+                //EmployeeId:event.target.EmployeeId.value, 
+                UserId:event.target.UserId.value,   
                 EmployeeName:event.target.EmployeeName.value,
                 Department:event.target.Department.value,
                 Birthdate:event.target.Birthdate.value,
@@ -92,67 +108,82 @@ export class AddEmpModal extends Component{
                         <Row>
                             <Col sm={6}>
                                 <Form onSubmit={this.handleSubmit}>
-                                <Form.Group controlId="UserId">
-                                        <Form.Label>User Id</Form.Label>
-                                        <Form.Control type="text" name="UserId" required
-                                         placeholder="UserId"
-                                         disabled
-                                         defaultValue={this.props.empuid}/>
-                                    </Form.Group>
-                                    <Form.Group controlId="Department">
-                                        <Form.Label>Department</Form.Label>
-                                        <Form.Control as="select" defaultValue={this.props.empdep} >
-                                        {this.state.deps.map(dep=>
-                                            <option key={dep.DepartmentId}>{dep.DepartmentName}</option>)}
-                                        </Form.Control>
-                                    </Form.Group>
-                                    <Form.Group controlId="EmployeeName">
-                                        <Form.Label>Employee Name</Form.Label>
-                                        <Form.Control type="text" name="EmployeeName" required
-                                        defaultValue={this.props.empname}
-                                         placeholder="EmployeeName"/>
-                                    </Form.Group>
-                                    <Form.Group controlId="Birthdate">
-                                        <Form.Label>Birthdate</Form.Label>
-                                        <Form.Control type="date"
-                                        name="Birthdate"
-                                        required
-                                        placeholder="Birthdate"
-                                        defaultValue={this.props.empbday}/>
-                                    </Form.Group>
-                                    <Form.Group controlId="Country">
-                                        <Form.Label>Country</Form.Label>
-                                        <Form.Control as="select" defaultValue={this.props.empcountry} >
-                                        {this.state.deps.map(c=>
-                                            <option key={c.CountryId}>{c.CountryName}</option>)}
-                                        </Form.Control>
-                                    </Form.Group>
-                                    <Form.Group controlId="City">
-                                        <Form.Label>City</Form.Label>
-                                        <Form.Control as="select" defaultValue={this.props.empcity} >
-                                        {this.state.deps.map(ci=>
-                                            <option key={ci.CityId}>{ci.CityName}</option>)}
-                                        </Form.Control>
-                                    </Form.Group>
-                                    <Form.Group controlId="Street">
-                                        <Form.Label>Street Name</Form.Label>
-                                        <Form.Control type="text" name="StreetName" required
-                                        defaultValue={this.props.empstreet}
-                                         placeholder="StreetName"/>
-                                    </Form.Group>
-                                    <Form.Group controlId="Zip">
-                                        <Form.Label>Zip</Form.Label>
-                                        <Form.Control type="text" name="Zip" required
-                                        defaultValue={this.props.empzip}
-                                         placeholder="Zip"/>
-                                    </Form.Group>
-                                    <Form.Group controlId="Phone">
-                                        <Form.Label>Phone Number</Form.Label>
-                                        <Form.Control type="text" name="Phone" required
-                                        defaultValue={this.props.empphone}
-                                         placeholder="Phone"/>
-                                    </Form.Group>
-                                    <Form.Group>
+                        
+                        <Form.Group controlId="UserId">
+                        <Form.Label>UserId</Form.Label>
+                            <Form.Control type="text" name="UserId" required
+                            placeholder="UserId"
+                            defaultValue={this.props.empuserid}/>
+                        </Form.Group>
+
+                        <Form.Group controlId="EmployeeName">
+                            <Form.Label>EmployeeName</Form.Label>
+                            <Form.Control type="text" name="EmployeeName" required
+                            defaultValue={this.props.empname}
+                            placeholder="EmployeeName"/>
+                        </Form.Group>
+
+                        <Form.Group controlId="Department">
+                            <Form.Label>Department</Form.Label>
+                            <Form.Control as="select" 
+                            defaultValue={this.props.dep}>
+                            {this.state.deps.map(dep=>
+                                <option key = {dep.DepartmentId}>{dep.DepartmentName}</option>
+                                )}
+                            </Form.Control> 
+                        </Form.Group>
+
+                        <Form.Group controlId="Birthdate">
+                            <Form.Label>Birthdate</Form.Label>
+                            <Form.Control 
+                            type="date"
+                            name="Birthdate"
+                            required
+                            placeholder="Birthdate"
+                            defaultValue={this.props.empbday}
+                            />
+                        </Form.Group>
+
+                        <Form.Group controlId="Country">
+                            <Form.Label>Country</Form.Label>
+                            <Form.Control as="select" defaultValue={this.props.empcountry}>
+                            {this.state.countries.map(c=>
+                                <option key = {c.CountryId}>{c.CountryName}</option>
+                                )}
+                            </Form.Control> 
+                        </Form.Group>
+
+                        <Form.Group controlId="City">
+                            <Form.Label>City</Form.Label>
+                            <Form.Control as="select" defaultValue={this.props.empcity}>
+                            {this.state.cities.map(ci=>
+                                <option key = {ci.CityId}>{ci.CityName}</option>
+                                )}
+                            </Form.Control> 
+                        </Form.Group>
+
+                        <Form.Group controlId="Street">
+                            <Form.Label>Street</Form.Label>
+                            <Form.Control type="text" name="Street" required
+                            defaultValue={this.props.empstreet}
+                            placeholder="Street"/>
+                        </Form.Group>
+
+                        <Form.Group controlId="Zip">
+                            <Form.Label>Zip</Form.Label>
+                            <Form.Control type="text" name="Zip" required
+                            defaultValue={this.props.empzip}
+                            placeholder="Zip"/>
+                        </Form.Group>
+
+                        <Form.Group controlId="Phone">
+                            <Form.Label>Phone</Form.Label>
+                            <Form.Control type="text" name="Phone" required
+                            defaultValue={this.props.empphone}
+                            placeholder="Phone"/>
+                        </Form.Group>
+
+                    <Form.Group>
                                         <Button variant="primary" type="submit">
                                             Add Employee
                                         </Button>

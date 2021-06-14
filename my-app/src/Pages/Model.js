@@ -9,14 +9,14 @@ export class Model extends Component{
     
         constructor(props){
             super(props);
-            this.state={deps:[], addModalShow:false, editModalShow:false}
+            this.state={mods:[], addModalShow:false, editModalShow:false}
         }
     
         refreshList(){
             fetch('http://localhost:5000/api/model')
             .then(response=>response.json())
             .then(data=>{
-                this.setState({deps:data});
+                this.setState({mods:data});
             });
         }
     
@@ -40,7 +40,7 @@ export class Model extends Component{
     
         render(){
     
-            const {deps, mid, mname}=this.state;
+            const {mods, mid, mname}=this.state;
             let addModalClose=()=>this.setState({addModalShow:false});
             let editModalClose=()=>this.setState({editModalShow:false});
             return (
@@ -54,7 +54,7 @@ export class Model extends Component{
                             </tr>
                         </thead>
                         <tbody>
-                            {deps.map(m=>
+                            {mods.map(m=>
                                 <tr key={m.ModelId}>
                                     <td>{m.ModelId}</td>
                                     <td>{m.NameModel}</td>

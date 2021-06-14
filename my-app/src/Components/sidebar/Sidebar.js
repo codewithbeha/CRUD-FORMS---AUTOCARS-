@@ -24,7 +24,7 @@ export default function Sidebar() {
     <div className="sidebar">
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Administrator Dashboard</h3>
+          <h3 className="sidebarTitle">Administrator</h3>
 
           <ul className="sidebarList">
             <Link to="/home" className="link">
@@ -33,14 +33,6 @@ export default function Sidebar() {
               Home 
             </li>
             </Link>
-            <li className="sidebarListItem">
-              <Timeline className="sidebarIcon" />
-              Analytics
-            </li>
-            <li className="sidebarListItem">
-              <TrendingUp className="sidebarIcon" />
-              Sales
-            </li>
           </ul>
         </div>
         <div className="sidebarMenu">

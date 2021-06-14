@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace AutosalloniBackEnd.Models
 {
     public class Employee
-    {
+    {      
         public int EmployeeId { get; set; }
 
         public int UserId { get; set; }

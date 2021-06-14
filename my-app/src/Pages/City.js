@@ -9,14 +9,14 @@ export class City extends Component{
     
     constructor(props){
         super(props);
-        this.state={deps:[], addModalShow:false, editModalShow:false}
+        this.state={cities:[], addModalShow:false, editModalShow:false}
     }
 
     refreshList(){
         fetch('http://localhost:5000/api/city')
         .then(response=>response.json())
         .then(data=>{
-            this.setState({deps:data});
+            this.setState({cities:data});
         });
     }
 
@@ -28,7 +28,7 @@ export class City extends Component{
         this.refreshList();
     }
 
-    deleteDep(ciid){
+    deleteCity(ciid){
         if(window.confirm('A jeni i sigurtë?')){
             fetch('http://localhost:5000/api/city/'+ciid,{
                 method:'DELETE',
@@ -40,7 +40,7 @@ export class City extends Component{
 
     render(){
 
-        const {deps, ciid, ciname}=this.state;
+        const {cities, ciid, ciname}=this.state;
         let addModalClose=()=>this.setState({addModalShow:false});
         let editModalClose=()=>this.setState({editModalShow:false});
         return (
@@ -54,7 +54,7 @@ export class City extends Component{
                         </tr>
                     </thead>
                     <tbody>
-                        {deps.map(ci=>
+                        {cities.map(ci=>
                             <tr key={ci.CityId}>
                                 <td>{ci.CityId}</td>
                                 <td>{ci.CityName}</td>
@@ -67,7 +67,7 @@ export class City extends Component{
                                             </Button>
 
                                             <Button className="mr-2" variant="danger"
-                                            onClick={()=>this.deleteCi(ci.CityId)}>
+                                            onClick={()=>this.deleteCity(ci.CityId)}>
                                                 Delete
                                             </Button>
 

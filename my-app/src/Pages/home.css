@@ -1,0 +1,11 @@
+.home{
+    flex: 1;
+}
+
+.homeWidgets{
+    display:grid;
+    margin: 20px;
+}
+.home{
+    display: inline;
+}

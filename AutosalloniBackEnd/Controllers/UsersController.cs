@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using AutosalloniBackEnd.Models;
+
 namespace AutosalloniBackEnd.Controllers
 {
     [Route("api/[controller]")]
@@ -46,8 +47,9 @@ namespace AutosalloniBackEnd.Controllers
             string query = @"INSERT INTO dbo.Users (Username, Password, Role)
                                                          Values (
                                                           '" + u.Username + @"'
-                                                         ,'" + u.Password + @"'
-                                                         ,'" + u.Role + @"'                                                      
+                                                         ,'" + u.Password + @"' 
+                                                         ,'" + u.Role + @"'  
+                                                         
 )";
             string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             SqlDataReader sqlDataReader;
@@ -66,11 +68,14 @@ namespace AutosalloniBackEnd.Controllers
         [HttpPut]
         public JsonResult Put(Users u)
         {
-            string query = @"UPDATE dbo.Users SET Username = '" + u.Username + @"'
-                                                  UserId = '" + u.Password + @"' 
-                                                  ,EmployeeName = '" + u.Role + @"' 
+            string query = @"UPDATE dbo.Users SET
+           
+                 Username = '" + u.Username + @"'
+                ,Password = '" + u.Password + @"'
+                ,Role = '" + u.Role + @"'
 
-                                                  WHERE UserId = " + u.UserId + @" ";
+                 WHERE UserId = " + u.UserId + @" ";
+
             string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             SqlDataReader sqlDataReader;
             using (SqlConnection myCon = new SqlConnection(sqlDataSource))
@@ -103,5 +108,6 @@ namespace AutosalloniBackEnd.Controllers
             }
             return new JsonResult("Te dhenat u fshin me sukses");
         }
+
     }
 }
