@@ -39,7 +39,6 @@ export class Brand extends Component{
         }
     
         render(){
-    
             const {deps, bid, bname}=this.state;
             let addModalClose=()=>this.setState({addModalShow:false});
             let editModalClose=()=>this.setState({editModalShow:false});

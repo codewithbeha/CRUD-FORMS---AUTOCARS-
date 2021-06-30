@@ -80,10 +80,28 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Automobile</h3>
           <ul className="sidebarList">
-          <Link to="/automobile" className="link">
+          <Link to="/auto" className="link">
               <li className="sidebarListItem">
                 <DirectionsCar className="sidebarIcon" />
                 Auto
+              </li>
+            </Link>
+            <Link to="/origin" className="link">
+              <li className="sidebarListItem">
+                <DirectionsCar className="sidebarIcon" />
+                Origin
+              </li>
+            </Link>
+            <Link to="/extras" className="link">
+              <li className="sidebarListItem">
+                <DirectionsCar className="sidebarIcon" />
+                Extras
+              </li>
+            </Link>
+            <Link to="/details" className="link">
+              <li className="sidebarListItem">
+                <DirectionsCar className="sidebarIcon" />
+                Details
               </li>
             </Link>
           <Link to="/brand" className="link">
