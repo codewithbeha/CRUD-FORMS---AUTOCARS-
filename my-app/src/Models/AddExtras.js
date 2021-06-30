@@ -17,7 +17,8 @@ export class AddExtras extends Component {
                 'Accept':'application/json',
                 'Content-Type':'application/json'
             },
-            body:JSON.stringify({              
+            body:JSON.stringify({      
+                VIN:event.target.VIN.value,          
                 NumDoors:event.target.NumDoors.value,
                 Color:event.target.Color.value,
                 Transmission:event.target.Transmission.value,
@@ -57,7 +58,6 @@ export class AddExtras extends Component {
                                <Form.Label>VIN</Form.Label>
                                 <Form.Control type="text" name="VIN" required 
                                 placeholder="VIN"
-                                disabled
                                 defaultValue={this.props.vin}/>
                                 </Form.Group>
 

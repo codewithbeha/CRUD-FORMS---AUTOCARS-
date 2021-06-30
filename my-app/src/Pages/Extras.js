@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {Table} from 'react-bootstrap';
+import car from "./Extras.jpg"
 
 import {Button,ButtonToolbar} from 'react-bootstrap';
 import {AddExtras} from '../Models/AddExtras';
@@ -44,6 +45,12 @@ export class Extras extends Component{
             let editModalClose=()=>this.setState({editModalShow:false});
             return (
                 <div>
+                            <div id="body">
+        <h1>Extras Search</h1>
+          <div id="content">
+            <img src={car} alt="image"/>
+            </div>
+            </div>
                     <Table className="mt-4" striped bordered hover size="sm">
                         <thead>
                             <tr>

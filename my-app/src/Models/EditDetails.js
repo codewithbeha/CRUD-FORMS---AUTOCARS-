@@ -55,7 +55,6 @@ centered
                 <Form.Group controlId="VIN">
                         <Form.Label>VIN</Form.Label>
                         <Form.Control type="text" name="VIN" required
-                        disabled
                         defaultValue={this.props.vin} 
                         placeholder="VIN"/>
                     </Form.Group>

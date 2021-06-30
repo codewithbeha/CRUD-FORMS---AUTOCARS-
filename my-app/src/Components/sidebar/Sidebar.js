@@ -89,7 +89,7 @@ export default function Sidebar() {
             <Link to="/origin" className="link">
               <li className="sidebarListItem">
                 <DirectionsCar className="sidebarIcon" />
-                Origin
+                Place
               </li>
             </Link>
             <Link to="/extras" className="link">

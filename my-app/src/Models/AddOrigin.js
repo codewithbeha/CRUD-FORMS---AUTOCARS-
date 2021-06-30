@@ -17,7 +17,8 @@ export class AddOrigin extends Component {
                 'Accept':'application/json',
                 'Content-Type':'application/json'
             },
-            body:JSON.stringify({              
+            body:JSON.stringify({       
+                VIN:event.target.VIN.value,       
                 VehicleState:event.target.VehicleState.value,
                 VehicleCity:event.target.VehicleCity.value,
                 VehicleZip:event.target.VehicleZip.value
@@ -55,7 +56,6 @@ export class AddOrigin extends Component {
                                <Form.Label>VIN</Form.Label>
                                 <Form.Control type="text" name="VIN" required 
                                 placeholder="VIN"
-                                disabled
                                 defaultValue={this.props.vin}/>
                                 </Form.Group>
 

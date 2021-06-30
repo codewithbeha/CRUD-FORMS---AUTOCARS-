@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {Table} from 'react-bootstrap';
-import car from "./Showroom.jpg"
+import car from "./Factory.jpg"
 import {Image} from 'react-bootstrap';
 
 import {Button,ButtonToolbar} from 'react-bootstrap';
@@ -47,7 +47,7 @@ export class Origin extends Component{
             return (
                 <div>
                     <div id="body">
-        <h1>Welcome to our car-showroom </h1>
+        <h1>Origin of vehicle</h1>
           <div id="content">
             <img src={car} alt="image"/>
             </div>
