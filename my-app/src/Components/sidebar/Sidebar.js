@@ -82,6 +82,27 @@ export default function Sidebar() {
               </li>
             </Link>
             <Link to="/origin" className="link">
+<<<<<<< HEAD
+=======
+              <li className="sidebarListItem">
+                <DirectionsCar className="sidebarIcon" />
+                Place
+              </li>
+            </Link>
+            <Link to="/extras" className="link">
+              <li className="sidebarListItem">
+                <DirectionsCar className="sidebarIcon" />
+                Extras
+              </li>
+            </Link>
+            <Link to="/details" className="link">
+              <li className="sidebarListItem">
+                <DirectionsCar className="sidebarIcon" />
+                Details
+              </li>
+            </Link>
+          <Link to="/brand" className="link">
+>>>>>>> 32156e7f01155eb20847a5566f050faaaad00345
               <li className="sidebarListItem">
                 <DirectionsCar className="sidebarIcon" />
                 Place

@@ -665,23 +665,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\38344\\.nuget\\packages\\": {},
+    "C:\\Users\\dardi\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "F:\\AUTO\\AutosalloniBackEnd\\AutosalloniBackEnd.csproj",
       "projectName": "AutosalloniBackEnd",
       "projectPath": "F:\\AUTO\\AutosalloniBackEnd\\AutosalloniBackEnd.csproj",
       "packagesPath": "C:\\Users\\38344\\.nuget\\packages\\",
       "outputPath": "F:\\AUTO\\AutosalloniBackEnd\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\dardi\\Desktop\\LabCourse\\THE-EAGLES\\AutosalloniBackEnd\\AutosalloniBackEnd.csproj",
+      "projectName": "AutosalloniBackEnd",
+      "projectPath": "C:\\Users\\dardi\\Desktop\\LabCourse\\THE-EAGLES\\AutosalloniBackEnd\\AutosalloniBackEnd.csproj",
+      "packagesPath": "C:\\Users\\dardi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dardi\\Desktop\\LabCourse\\THE-EAGLES\\AutosalloniBackEnd\\obj\\",
+>>>>>>> 32156e7f01155eb20847a5566f050faaaad00345
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\38344\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dardi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -735,7 +743,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }

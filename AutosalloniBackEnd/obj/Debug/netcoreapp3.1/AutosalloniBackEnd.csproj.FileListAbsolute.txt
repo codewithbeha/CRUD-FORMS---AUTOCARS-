@@ -102,6 +102,7 @@ C:\Users\dardi\Desktop\LabCourse\THE-EAGLES\AutosalloniBackEnd\obj\Debug\netcore
 C:\Users\dardi\Desktop\LabCourse\THE-EAGLES\AutosalloniBackEnd\obj\Debug\netcoreapp3.1\AutosalloniBackEnd.dll
 C:\Users\dardi\Desktop\LabCourse\THE-EAGLES\AutosalloniBackEnd\obj\Debug\netcoreapp3.1\AutosalloniBackEnd.pdb
 C:\Users\dardi\Desktop\LabCourse\THE-EAGLES\AutosalloniBackEnd\obj\Debug\netcoreapp3.1\AutosalloniBackEnd.genruntimeconfig.cache
+<<<<<<< HEAD
 F:\AUTO\AutosalloniBackEnd\bin\Debug\netcoreapp3.1\appsettings.Development.json
 F:\AUTO\AutosalloniBackEnd\bin\Debug\netcoreapp3.1\appsettings.json
 F:\AUTO\AutosalloniBackEnd\bin\Debug\netcoreapp3.1\Controllers\bin\Debug\netcoreapp3.1\appsettings.Development.json
@@ -154,3 +155,5 @@ F:\AUTO\AutosalloniBackEnd\obj\Debug\netcoreapp3.1\AutosalloniBackEnd.csproj.Cop
 F:\AUTO\AutosalloniBackEnd\obj\Debug\netcoreapp3.1\AutosalloniBackEnd.dll
 F:\AUTO\AutosalloniBackEnd\obj\Debug\netcoreapp3.1\AutosalloniBackEnd.pdb
 F:\AUTO\AutosalloniBackEnd\obj\Debug\netcoreapp3.1\AutosalloniBackEnd.genruntimeconfig.cache
+=======
+>>>>>>> 32156e7f01155eb20847a5566f050faaaad00345
