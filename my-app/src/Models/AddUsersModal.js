@@ -20,6 +20,7 @@ export class AddUsersModal extends Component {
             body:JSON.stringify({              
                 //UserId:event.target.UserId.value,
                 Username:event.target.Username.value,
+                Email:event.target.Email.value,
                 Password:event.target.Password.value,
                 Role:event.target.Role.value   
             })
@@ -57,6 +58,13 @@ export class AddUsersModal extends Component {
                         <Form.Control type="text" name="Username" required 
                         defaultValue={this.props.uname}
                         placeholder="Username"/>
+                    </Form.Group>
+
+                    <Form.Group controlId="Email">
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control type="email" name="Email" required 
+                        defaultValue={this.props.uemail}
+                        placeholder="Email"/>
                     </Form.Group>
 
                     <Form.Group controlId="Password">

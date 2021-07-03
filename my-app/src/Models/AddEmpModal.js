@@ -48,8 +48,7 @@ export class AddEmpModal extends Component{
                 'Content-Type':'application/json'
             },
             body:JSON.stringify({
-                //EmployeeId:event.target.EmployeeId.value, 
-                UserId:event.target.UserId.value,   
+                //EmployeeId:event.target.EmployeeId.value,   
                 EmployeeName:event.target.EmployeeName.value,
                 Department:event.target.Department.value,
                 Birthdate:event.target.Birthdate.value,
@@ -108,13 +107,6 @@ export class AddEmpModal extends Component{
                         <Row>
                             <Col sm={6}>
                                 <Form onSubmit={this.handleSubmit}>
-                        
-                        <Form.Group controlId="UserId">
-                        <Form.Label>UserId</Form.Label>
-                            <Form.Control type="text" name="UserId" required
-                            placeholder="UserId"
-                            defaultValue={this.props.empuserid}/>
-                        </Form.Group>
 
                         <Form.Group controlId="EmployeeName">
                             <Form.Label>EmployeeName</Form.Label>

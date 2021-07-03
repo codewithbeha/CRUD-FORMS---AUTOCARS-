@@ -40,7 +40,7 @@ export class Users extends Component{
 
     render(){
 
-        const {users, uid, uname, upassword, urole}=this.state;
+        const {users, uid, uname, uemail, upassword, urole}=this.state;
         let addModalClose=()=>this.setState({addModalShow:false});
         let editModalClose=()=>this.setState({editModalShow:false});
         return (
@@ -50,6 +50,7 @@ export class Users extends Component{
                         <tr>
                             <th>UserId</th>
                             <th>Username</th>
+                            <th>Email</th>
                             <th>Password</th>
                             <th>Role</th>
                             <th>Options</th>
@@ -60,13 +61,14 @@ export class Users extends Component{
                             <tr key={u.UserId}>
                                 <td>{u.UserId}</td>
                                 <td>{u.Username}</td>
+                                <td>{u.Email}</td>
                                 <td>{u.Password}</td>
                                 <td>{u.Role}</td>
                                 <td>
                                     <ButtonToolbar>
                                         <Button className="mr-2" variant="info"
                                         onClick={()=>this.setState({editModalShow:true,
-                                         uid:u.UserId,uname:u.Username,upassword:u.Password, urole:u.Role})}>
+                                         uid:u.UserId,uname:u.Username, uemail:u.Email ,upassword:u.Password, urole:u.Role})}>
                                                 Edit
                                             </Button>
 
@@ -79,6 +81,7 @@ export class Users extends Component{
                                             onHide={editModalClose}
                                             uid={uid}
                                             uname={uname}
+                                            uemail={uemail}
                                             upassword={upassword}
                                             urole={urole}
                                             />

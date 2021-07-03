@@ -30,7 +30,7 @@ namespace AutosalloniBackEnd.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            string query = @"SELECT EmployeeId,UserId,EmployeeName,Department,Birthdate,
+            string query = @"SELECT EmployeeId,EmployeeName,Department,Birthdate,
                             Country,City,Street,Zip,Phone,PhotoFileName FROM dbo.Employee";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
@@ -51,10 +51,10 @@ namespace AutosalloniBackEnd.Controllers
         [HttpPost]
         public JsonResult Post(Employee emp)
         {
-            string query = @"INSERT INTO dbo.Employee (UserId,EmployeeName, Department, Birthdate, Country, City, Street, Zip, Phone, PhotoFileName )
+            string query = @"INSERT INTO dbo.Employee (EmployeeName, Department, Birthdate, Country, City, Street, Zip, Phone, PhotoFileName )
                                                          Values (
-                                                          '" + emp.UserId + @"'
-                                                         ,'" + emp.EmployeeName + @"'
+
+                                                         '" + emp.EmployeeName + @"'
                                                          ,'" + emp.Department + @"'
                                                          ,'" + emp.Birthdate + @"'
                                                          ,'" + emp.Country + @"'
@@ -84,8 +84,7 @@ namespace AutosalloniBackEnd.Controllers
         {
             string query = @"UPDATE dbo.Employee SET
 
-                  UserId = '" + emp.UserId + @"'
-                 ,EmployeeName = '" + emp.EmployeeName + @"'
+                 EmployeeName = '" + emp.EmployeeName + @"'
                 ,Department = '" + emp.Department + @"'  
                 ,Birthdate = '" + emp.Birthdate + @"'
                 ,Country  = '" + emp.Country + @"'

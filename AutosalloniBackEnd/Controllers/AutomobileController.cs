@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -50,10 +50,9 @@ namespace AutosalloniBackEnd.Controllers
         [HttpPost]
         public JsonResult Post(Automobile auto)
         {
-            string query = @"INSERT INTO dbo.Automobile (VIN,Brand,Model,VehicleYear,VehiclePrice,Kilometers,PhotoFileName)
+            string query = @"INSERT INTO dbo.Automobile (Brand,Model,VehicleYear,VehiclePrice,Kilometers,PhotoFileName)
                                                          Values (
-                                                          '" + auto.VIN + @"'
-                                                         ,'" + auto.Brand + @"'
+                                                         '" + auto.Brand + @"'
                                                          ,'" + auto.Model + @"'
                                                          ,'" + auto.VehicleYear + @"'
                                                          ,'" + auto.VehiclePrice + @"'
@@ -74,14 +73,13 @@ namespace AutosalloniBackEnd.Controllers
 
                 }
             }
-            return new JsonResult("TÃ« dhÃ«nat u shtuan me sukses");
+            return new JsonResult("Të dhënat u shtuan me sukses");
         }
         [HttpPut]
         public JsonResult Put(Automobile auto)
         {
             string query = @"UPDATE dbo.Automobile SET
-                 VIN = '" + auto.VIN + @"' 
-                 ,Brand = '" + auto.Brand + @"' 
+                 Brand = '" + auto.Brand + @"' 
                 ,Model = '" + auto.Model + @"'
                 ,VehicleYear = '" + auto.VehicleYear + @"'
                 ,VehiclePrice  = '" + auto.VehiclePrice + @"'
@@ -103,7 +101,7 @@ namespace AutosalloniBackEnd.Controllers
                     myCon.Close();
                 }
             }
-            return new JsonResult("TÃ« dhÃ«nat u pÃ«rditÃ«suan me sukses");
+            return new JsonResult("Të dhënat u përditsuan me sukses");
         }
         [HttpDelete("{id}")]
         public JsonResult Delete(int id)
@@ -122,7 +120,7 @@ namespace AutosalloniBackEnd.Controllers
                     myCon.Close();
                 }
             }
-            return new JsonResult("TÃ« dhÃ«nat u fshinÃ« me sukses");
+            return new JsonResult("Të dhënat u fshinë me sukses");
         }
 
         [Route("SaveFile")]

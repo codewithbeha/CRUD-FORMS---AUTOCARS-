@@ -48,7 +48,6 @@ export class EditEmpModal extends Component{
             },
             body:JSON.stringify({
                 EmployeeId:event.target.EmployeeId.value,
-                UserId:event.target.UserId.value,
                 EmployeeName:event.target.EmployeeName.value,
                 Department:event.target.Department.value,
                 Birthdate:event.target.Birthdate.value,
@@ -113,14 +112,6 @@ export class EditEmpModal extends Component{
                             placeholder="EmployeeId"
                             disabled
                             defaultValue={this.props.empid}/>
-                        </Form.Group>
-
-                        <Form.Group controlId="UserId">
-                            <Form.Label>UserId</Form.Label>
-                            <Form.Control type="text" name="UserId" required
-                            placeholder="UserId"
-                            //disabled
-                            defaultValue={this.props.empuserid}/>
                         </Form.Group>
 
                         <Form.Group controlId="EmployeeName">

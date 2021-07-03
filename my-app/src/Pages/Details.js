@@ -1,22 +1,23 @@
 import React,{Component} from 'react';
 import {Table} from 'react-bootstrap';
+import car from "./Details.png"
 
 import {Button,ButtonToolbar} from 'react-bootstrap';
-import {AddBrandModal} from '../Models/AddBrandModal';
-import {EditBrandModal} from '../Models/EditBrandModal';
+import {AddDetails} from '../Models/AddDetails';
+import {EditDetails} from '../Models/EditDetails';
 
-export class Brand extends Component{
+export class Details extends Component{
     
         constructor(props){
             super(props);
-            this.state={deps:[], addModalShow:false, editModalShow:false}
+            this.state={det:[], addModalShow:false, editModalShow:false}
         }
     
         refreshList(){
-            fetch('http://localhost:5000/api/brand')
+            fetch('http://localhost:5000/api/details')
             .then(response=>response.json())
             .then(data=>{
-                this.setState({deps:data});
+                this.setState({det:data});
             });
         }
     
@@ -28,9 +29,9 @@ export class Brand extends Component{
             this.refreshList();
         }
     
-        deleteDep(bid){
+        deleteDetails(vin){
             if(window.confirm('A jeni i sigurtë?')){
-                fetch('http://localhost:5000/api/brand/'+bid,{
+                fetch('http://localhost:5000/api/details/'+vin,{
                     method:'DELETE',
                     header:{'Accept':'application/json',
                 'Content-Type':'application/json'}
@@ -39,42 +40,61 @@ export class Brand extends Component{
         }
     
         render(){
-    
-            const {deps, bid, bname}=this.state;
+            const {det,vin,tyres,air,inter,sen,head}=this.state;
             let addModalClose=()=>this.setState({addModalShow:false});
             let editModalClose=()=>this.setState({editModalShow:false});
             return (
                 <div>
+                         <div id="body">
+        <h1>Details of vehicle</h1>
+          <div id="content">
+            <img src={car} alt="image"/>
+            </div>
+            </div>
                     <Table className="mt-4" striped bordered hover size="sm">
                         <thead>
                             <tr>
-                                <th>BrandId</th>
-                                <th>BrandName</th>
+                                <th>VIN</th>
+                                <th>Tyres</th>
+                                <th>Air-Condition</th>
+                                <th>Interior</th>
+                                <th>Sensors</th>
+                                <th>Headlight</th>
                                 <th>Options</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {deps.map(b=>
-                                <tr key={b.BrandId}>
-                                    <td>{b.BrandId}</td>
-                                    <td>{b.BrandName}</td>
+                            {det.map(det=>
+                                <tr key={det.VIN}>
+                                    <td>{det.VIN}</td>
+                                    <td>{det.Tyres}</td>
+                                    <td>{det.AirCon}</td>
+                                    <td>{det.Interior}</td>
+                                    <td>{det.Sensors}</td>
+                                    <td>{det.Headlight}</td>
                                     <td>
                                         <ButtonToolbar>
                                             <Button className="mr-2" variant="info"
                                             onClick={()=>this.setState({editModalShow:true,
-                                                bid:b.BrandId,bname:b.BrandName})}>
+                                                vin:det.VIN,tyres:det.Tyres,air:det.AirCon,
+                                                inter:det.Interior,sen:det.Sensors,head:det.Headlight})}>
                                                     Edit
                                                 </Button>
     
                                                 <Button className="mr-2" variant="danger"
-                                                onClick={()=>this.deleteDep(b.BrandId)}>
+                                                onClick={()=>this.deleteDetails(det.VIN)}>
                                                     Delete
                                                 </Button>
     
-                                                <EditBrandModal show={this.state.editModalShow}
+                                                <EditDetails show={this.state.editModalShow}
                                                 onHide={editModalClose}
-                                                bid={bid}
-                                                bname={bname}/>
+                                                vin={vin}
+                                                tyres={tyres}
+                                                air={air}
+                                                inter={inter}
+                                                sen={sen}
+                                                head={head}
+                                               />
                                         </ButtonToolbar>
                                     </td>
                                 </tr>)}
@@ -84,11 +104,11 @@ export class Brand extends Component{
                     <ButtonToolbar>
                         <Button variant='primary'
                         onClick={()=>this.setState({addModalShow:true})}>
-                            Add Brand
+                            Add Details
                         </Button>
     
-                        <AddBrandModal show={this.state.addModalShow}
-                        onHide={addModalClose}></AddBrandModal>
+                        <AddDetails show={this.state.addModalShow}
+                        onHide={addModalClose}/>
                     </ButtonToolbar>
                 </div>
             )

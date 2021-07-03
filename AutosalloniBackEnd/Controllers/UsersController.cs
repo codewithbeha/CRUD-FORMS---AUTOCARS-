@@ -24,7 +24,7 @@ namespace AutosalloniBackEnd.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            string query = @"SELECT UserId, Username, Password, Role FROM dbo.Users";
+            string query = @"SELECT UserId, Username, Email, Password, Role FROM dbo.Users";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             SqlDataReader sqlDataReader;
@@ -44,9 +44,10 @@ namespace AutosalloniBackEnd.Controllers
         [HttpPost]
         public JsonResult Post(Users u)
         {
-            string query = @"INSERT INTO dbo.Users (Username, Password, Role)
+            string query = @"INSERT INTO dbo.Users (Username, Email, Password, Role)
                                                          Values (
                                                           '" + u.Username + @"'
+                                                         ,'" + u.Email + @"' 
                                                          ,'" + u.Password + @"' 
                                                          ,'" + u.Role + @"'  
                                                          
@@ -71,6 +72,7 @@ namespace AutosalloniBackEnd.Controllers
             string query = @"UPDATE dbo.Users SET
            
                  Username = '" + u.Username + @"'
+                ,Email = '" + u.Email + @"'
                 ,Password = '" + u.Password + @"'
                 ,Role = '" + u.Role + @"'
 

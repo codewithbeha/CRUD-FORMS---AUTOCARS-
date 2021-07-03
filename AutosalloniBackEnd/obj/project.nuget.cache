@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "45pIoRL3rkZKE+i3HgGq5MAtECaS0toP6ToD3pU0mnDxufUa8shGk/lPsaG59jKkquh8zIk/qsI2hgeDf9kyLw==",
+  "dgSpecHash": "G5ukq3ibHizv3rxJ/R5BdY6P+UgdLyoEwmU1CEh+oHhj/gL+NNAZicsvP6Ma0eYSpsIC1iXufDRo8VveIItLew==",
   "success": true,
-  "projectFilePath": "F:\\AutosalloniProjekti\\Autosalloni\\AutosalloniBackEnd\\AutosalloniBackEnd.csproj",
+  "projectFilePath": "F:\\AUTO\\AutosalloniBackEnd\\AutosalloniBackEnd.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\38344\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.9\\microsoft.aspnetcore.jsonpatch.3.1.9.nupkg.sha512",
     "C:\\Users\\38344\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.9\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.9.nupkg.sha512",

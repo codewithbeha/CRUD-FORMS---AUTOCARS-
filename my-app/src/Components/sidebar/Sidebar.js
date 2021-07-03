@@ -1,20 +1,16 @@
 import './sidebar.css';
 import {
   LineStyle,
-  Timeline,
-  TrendingUp,
   PermIdentity,
   Storefront,
   Accessibility,
   BarChart,
   LocationCity,
-  MailOutline,
+  AttachMoney,
   DynamicFeed,
   Public,
   ChatBubbleOutline,
-  Category,
   Report,
-  ViewModule,
   DirectionsCar,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
@@ -76,28 +72,34 @@ export default function Sidebar() {
             </Link>
           </ul>
         </div>
-
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Automobile</h3>
           <ul className="sidebarList">
-          <Link to="/automobile" className="link">
+          <Link to="/auto" className="link">
               <li className="sidebarListItem">
                 <DirectionsCar className="sidebarIcon" />
                 Auto
               </li>
             </Link>
-          <Link to="/brand" className="link">
+            <Link to="/origin" className="link">
               <li className="sidebarListItem">
-                <Category className="sidebarIcon" />
-                Brand
+                <DirectionsCar className="sidebarIcon" />
+                Place
               </li>
             </Link>
-            <Link to="/model" className="link">
+            <Link to="/extras" className="link">
               <li className="sidebarListItem">
-                <ViewModule className="sidebarIcon" />
-                Model
+                <DirectionsCar className="sidebarIcon" />
+                Extras
               </li>
             </Link>
+            <Link to="/details" className="link">
+              <li className="sidebarListItem">
+                <DirectionsCar className="sidebarIcon" />
+                Details
+              </li>
+            </Link>
+          
             <li className="sidebarListItem">
               <Report className="sidebarIcon" />
               Reports
@@ -108,17 +110,21 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Jobs</h3>
           <ul className="sidebarList">
-            <li className="sidebarListItem">
-              <MailOutline className="sidebarIcon" />
-              Mail
-            </li>
-            <li className="sidebarListItem">
-              <DynamicFeed className="sidebarIcon" />
-              Feedback
-            </li>
+            <Link to="/sales" className="link">
+              <li className="sidebarListItem">
+                <DynamicFeed className="sidebarIcon" />
+                Sales
+              </li>
+            </Link>
+            <Link to="/payment" className="link">
+              <li className="sidebarListItem">
+                <AttachMoney className="sidebarIcon" />
+                Payment
+              </li>
+            </Link>
             <li className="sidebarListItem">
               <ChatBubbleOutline className="sidebarIcon" />
-              Messages
+              Task
             </li>
             <Link to="/logout" className="link">
               <li className="sidebarListItem">

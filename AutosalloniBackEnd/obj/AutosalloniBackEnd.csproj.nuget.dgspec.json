@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\AutosalloniProjekti\\Autosalloni\\AutosalloniBackEnd\\AutosalloniBackEnd.csproj": {}
+    "F:\\AUTO\\AutosalloniBackEnd\\AutosalloniBackEnd.csproj": {}
   },
   "projects": {
-    "F:\\AutosalloniProjekti\\Autosalloni\\AutosalloniBackEnd\\AutosalloniBackEnd.csproj": {
+    "F:\\AUTO\\AutosalloniBackEnd\\AutosalloniBackEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\AutosalloniProjekti\\Autosalloni\\AutosalloniBackEnd\\AutosalloniBackEnd.csproj",
+        "projectUniqueName": "F:\\AUTO\\AutosalloniBackEnd\\AutosalloniBackEnd.csproj",
         "projectName": "AutosalloniBackEnd",
-        "projectPath": "F:\\AutosalloniProjekti\\Autosalloni\\AutosalloniBackEnd\\AutosalloniBackEnd.csproj",
+        "projectPath": "F:\\AUTO\\AutosalloniBackEnd\\AutosalloniBackEnd.csproj",
         "packagesPath": "C:\\Users\\38344\\.nuget\\packages\\",
-        "outputPath": "F:\\AutosalloniProjekti\\Autosalloni\\AutosalloniBackEnd\\obj\\",
+        "outputPath": "F:\\AUTO\\AutosalloniBackEnd\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

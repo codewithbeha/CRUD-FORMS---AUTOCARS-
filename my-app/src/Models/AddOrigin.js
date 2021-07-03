@@ -3,7 +3,7 @@ import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
 
 
 
-export class AddBrandModal extends Component {
+export class AddOrigin extends Component {
     constructor(props) {
         super(props);
         this.handleSubmit=this.handleSubmit.bind(this);
@@ -11,14 +11,17 @@ export class AddBrandModal extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        fetch('http://localhost:5000/api/brand', {
+        fetch('http://localhost:5000/api/origin', {
             method:'POST',
             headers:{
                 'Accept':'application/json',
                 'Content-Type':'application/json'
             },
-            body:JSON.stringify({              
-                BrandName:event.target.BrandName.value
+            body:JSON.stringify({       
+                VIN:event.target.VIN.value,       
+                VehicleState:event.target.VehicleState.value,
+                VehicleCity:event.target.VehicleCity.value,
+                VehicleZip:event.target.VehicleZip.value
             })
         })
         .then(res=>res.json())
@@ -41,22 +44,42 @@ export class AddBrandModal extends Component {
                 >
                     <Modal.Header clooseButton>
                         <Modal.Title id="contained-modal-title-vcenter">
-                            Add Brand
+                            Add Origin
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <Row>
                             <Col sm={6}>
                                 <Form onSubmit={this.handleSubmit}>
-                                    <Form.Group controlI="BrandName">
-                                        <Form.Label>Brand Name</Form.Label>
-                                        <Form.Control type="text" name="BrandName" required
-                                            placeholder="BrandName" />
+
+                                <Form.Group controlId="VIN">
+                               <Form.Label>VIN</Form.Label>
+                                <Form.Control type="text" name="VIN" required 
+                                placeholder="VIN"
+                                defaultValue={this.props.vin}/>
+                                </Form.Group>
+
+                                    <Form.Group controlI="VehicleState">
+                                        <Form.Label>VehicleState</Form.Label>
+                                        <Form.Control type="text" name="VehicleState" required
+                                            placeholder="VehicleState" />
+                                    </Form.Group>
+
+                                    <Form.Group controlI="VehicleCity">
+                                        <Form.Label>VehicleCity</Form.Label>
+                                        <Form.Control type="text" name="VehicleCity" required
+                                            placeholder="VehicleCity" />
+                                    </Form.Group>
+
+                                    <Form.Group controlI="VehicleZip">
+                                        <Form.Label>VehicleZip</Form.Label>
+                                        <Form.Control type="text" name="VehicleZip" required
+                                            placeholder="VehicleZip" />
                                     </Form.Group>
 
                                     <Form.Group>
                                         <Button variant="primary" type="submit">
-                                            Add Brand
+                                            Add Origin
                                         </Button>
                                     </Form.Group>
                                 </Form>

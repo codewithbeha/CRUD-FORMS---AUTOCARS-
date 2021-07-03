@@ -9,8 +9,6 @@ namespace AutosalloniBackEnd.Models
     {      
         public int EmployeeId { get; set; }
 
-        public int UserId { get; set; }
-
         public string EmployeeName { get; set; }
 
         public string Department { get; set; }

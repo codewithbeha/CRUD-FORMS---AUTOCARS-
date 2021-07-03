@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {Table} from 'react-bootstrap';
+import {Image} from 'react-bootstrap';
 
 import {Button,ButtonToolbar} from 'react-bootstrap';
 import {AddEmpModal} from '../Models/AddEmpModal';
@@ -40,7 +41,7 @@ export class Employee extends Component{
 
     render(){
 
-        const {emps, empid, empuserid, empname, empdep ,empbday, empcountry, empcity, empstreet,empzip,empphone,photofilename}=this.state;
+        const {emps, empid, empname, empdep ,empbday, empcountry, empcity, empstreet,empzip,empphone,photofilename}=this.state;
         let addModalClose=()=>this.setState({addModalShow:false});
         let editModalClose=()=>this.setState({editModalShow:false});
         return (
@@ -49,7 +50,6 @@ export class Employee extends Component{
                     <thead>
                         <tr>
                             <th>EmployeeId</th>
-                            <th>UserId</th>
                             <th>EmployeeName</th>
                             <th>Department</th>
                             <th>Birthdate</th>
@@ -66,7 +66,6 @@ export class Employee extends Component{
                         {emps.map(emp=>
                             <tr key={emp.EmployeeId}>
                                 <td>{emp.EmployeeId}</td>
-                                <td>{emp.UserId}</td>
                                 <td>{emp.EmployeeName}</td>
                                 <td>{emp.Department}</td>
                                 <td>{emp.Birthdate}</td>
@@ -75,15 +74,17 @@ export class Employee extends Component{
                                 <td>{emp.Street}</td>
                                 <td>{emp.Zip}</td>
                                 <td>{emp.Phone}</td>
+                                <td>{ <Image width="100px" height="100px" 
+                src={'http://localhost:5000/Photos/'+emp.PhotoFileName}/>}</td>
                                 <td>{emp.PhotoFileName}</td>
                                 <td>
                                     <ButtonToolbar>
                                         <Button className="mr-2" variant="info"
                                         onClick={()=>this.setState({editModalShow:true,
-                                            empid:emp.EmployeeId, empuserid:emp.UserId,empname:emp.EmployeeName,empdep:emp.Department,empbday:emp.Birthdate, empcountry:emp.Country,empcity:emp.City,empstreet:emp.Street,empzip:emp.Zip,empphone:emp.Phone,photofilename:emp.PhotoFileName})}>
+                                            empid:emp.EmployeeId, empname:emp.EmployeeName,empdep:emp.Department,empbday:emp.Birthdate, empcountry:emp.Country,empcity:emp.City,empstreet:emp.Street,empzip:emp.Zip,empphone:emp.Phone,photofilename:emp.PhotoFileName})}>
                                                 Edit     
-                                            </Button>
-
+                                            </Button> 
+                                            
                                             <Button className="mr-2" variant="danger"
                                             onClick={()=>this.deleteEmp(emp.EmployeeId)}>
                                                 Delete
@@ -92,7 +93,6 @@ export class Employee extends Component{
                                             <EditEmpModal show={this.state.editModalShow}
                                             onHide={editModalClose}
                                             empid={empid}
-                                            empuserid={empuserid}
                                             empname={empname}
                                             empdep={empdep}
                                             empbday={empbday}

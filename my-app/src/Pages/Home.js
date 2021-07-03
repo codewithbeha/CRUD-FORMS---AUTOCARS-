@@ -1,6 +1,6 @@
 import Chart from '../Components/chart/chart';
 import FeaturedInfo from "../Components/featuredInfo/FeaturedInfo";
-import '../Pages/home.css';
+import './home.css';
 import { Users } from "../Pages/Users";
 import WidgetSm from "../Components/widgetSm/WidgetSm";
 import WidgetLg from "../Components/widgetLg/WidgetLg";

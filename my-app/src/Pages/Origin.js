@@ -1,22 +1,24 @@
 import React,{Component} from 'react';
 import {Table} from 'react-bootstrap';
+import car from "./Factory.jpg"
+import {Image} from 'react-bootstrap';
 
 import {Button,ButtonToolbar} from 'react-bootstrap';
-import {AddModModal} from '../Models/AddModModal';
-import {EditModModal} from '../Models/EditModModal';
+import {AddOrigin} from '../Models/AddOrigin';
+import {EditOrigin} from '../Models/EditOrigin';
 
-export class Model extends Component{
+export class Origin extends Component{
     
         constructor(props){
             super(props);
-            this.state={mods:[], addModalShow:false, editModalShow:false}
+            this.state={origin:[], addModalShow:false, editModalShow:false}
         }
     
         refreshList(){
-            fetch('http://localhost:5000/api/model')
+            fetch('http://localhost:5000/api/origin')
             .then(response=>response.json())
             .then(data=>{
-                this.setState({mods:data});
+                this.setState({origin:data});
             });
         }
     
@@ -28,9 +30,9 @@ export class Model extends Component{
             this.refreshList();
         }
     
-        deleteDep(mid){
+        deleteOrigin(vin){
             if(window.confirm('A jeni i sigurtë?')){
-                fetch('http://localhost:5000/api/model/'+mid,{
+                fetch('http://localhost:5000/api/origin/'+vin,{
                     method:'DELETE',
                     header:{'Accept':'application/json',
                 'Content-Type':'application/json'}
@@ -39,42 +41,54 @@ export class Model extends Component{
         }
     
         render(){
-    
-            const {mods, mid, mname}=this.state;
+            const {origin,vin,vstate,vcity,vzip}=this.state;
             let addModalClose=()=>this.setState({addModalShow:false});
             let editModalClose=()=>this.setState({editModalShow:false});
             return (
                 <div>
+                    <div id="body">
+        <h1>Origin of vehicle</h1>
+          <div id="content">
+            <img src={car} alt="image"/>
+            </div>
+            </div>
                     <Table className="mt-4" striped bordered hover size="sm">
                         <thead>
                             <tr>
-                                <th>ModelId</th>
-                                <th>NameModel</th>
+                                <th>VIN</th>
+                                <th>VehicleState</th>
+                                <th>VehicleCity</th>
+                                <th>VehicleZip</th>
                                 <th>Options</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {mods.map(m=>
-                                <tr key={m.ModelId}>
-                                    <td>{m.ModelId}</td>
-                                    <td>{m.NameModel}</td>
+                            {origin.map(origin=>
+                                <tr key={origin.VIN}>
+                                    <td>{origin.VIN}</td>
+                                    <td>{origin.VehicleState}</td>
+                                    <td>{origin.VehicleCity}</td>
+                                    <td>{origin.VehicleZip}</td>
                                     <td>
                                         <ButtonToolbar>
                                             <Button className="mr-2" variant="info"
                                             onClick={()=>this.setState({editModalShow:true,
-                                                mid:m.ModelId,mname:m.NameModel})}>
+                                                vin:origin.VIN,vstate:origin.VehicleState,vcity:origin.VehicleCity,vzip:origin.VehicleZip})}>
                                                     Edit
                                                 </Button>
     
                                                 <Button className="mr-2" variant="danger"
-                                                onClick={()=>this.deleteDep(m.ModelId)}>
+                                                onClick={()=>this.deleteOrigin(origin.VIN)}>
                                                     Delete
                                                 </Button>
     
-                                                <EditModModal show={this.state.editModalShow}
+                                                <EditOrigin show={this.state.editModalShow}
                                                 onHide={editModalClose}
-                                                mid={mid}
-                                                mname={mname}/>
+                                                vin={vin}
+                                                vstate={vstate}
+                                                vcity={vcity}
+                                                vzip={vzip}
+                                               />
                                         </ButtonToolbar>
                                     </td>
                                 </tr>)}
@@ -84,11 +98,11 @@ export class Model extends Component{
                     <ButtonToolbar>
                         <Button variant='primary'
                         onClick={()=>this.setState({addModalShow:true})}>
-                            Add Model
+                            Add Origin
                         </Button>
     
-                        <AddModModal show={this.state.addModalShow}
-                        onHide={addModalClose}></AddModModal>
+                        <AddOrigin show={this.state.addModalShow}
+                        onHide={addModalClose}/>
                     </ButtonToolbar>
                 </div>
             )
