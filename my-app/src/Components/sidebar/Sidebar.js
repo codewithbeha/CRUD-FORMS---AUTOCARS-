@@ -64,10 +64,10 @@ export default function Sidebar() {
                 Users
               </li>
             </Link>
-            <Link to="/reports" className="link">
+            <Link to="/report" className="link">
               <li className="sidebarListItem">
                 <BarChart className="sidebarIcon" />
-                Reports
+                Report
               </li>
             </Link>
           </ul>
@@ -82,27 +82,6 @@ export default function Sidebar() {
               </li>
             </Link>
             <Link to="/origin" className="link">
-<<<<<<< HEAD
-=======
-              <li className="sidebarListItem">
-                <DirectionsCar className="sidebarIcon" />
-                Place
-              </li>
-            </Link>
-            <Link to="/extras" className="link">
-              <li className="sidebarListItem">
-                <DirectionsCar className="sidebarIcon" />
-                Extras
-              </li>
-            </Link>
-            <Link to="/details" className="link">
-              <li className="sidebarListItem">
-                <DirectionsCar className="sidebarIcon" />
-                Details
-              </li>
-            </Link>
-          <Link to="/brand" className="link">
->>>>>>> 32156e7f01155eb20847a5566f050faaaad00345
               <li className="sidebarListItem">
                 <DirectionsCar className="sidebarIcon" />
                 Place
@@ -131,10 +110,10 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Jobs</h3>
           <ul className="sidebarList">
-            <Link to="/sales" className="link">
+            <Link to="/task" className="link">
               <li className="sidebarListItem">
                 <DynamicFeed className="sidebarIcon" />
-                Sales
+                Task
               </li>
             </Link>
             <Link to="/payment" className="link">

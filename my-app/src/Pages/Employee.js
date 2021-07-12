@@ -59,6 +59,7 @@ export class Employee extends Component{
                             <th>Zip</th>
                             <th>Phone</th>
                             <th>PhotoFileName</th>
+                            <th></th>
                             <th>Options</th>
                         </tr>
                     </thead>

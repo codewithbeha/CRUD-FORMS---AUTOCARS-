@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "F:\\AUTO\\AutosalloniBackEnd\\AutosalloniBackEnd.csproj": {}
   },
   "projects": {
@@ -13,25 +12,12 @@
         "projectPath": "F:\\AUTO\\AutosalloniBackEnd\\AutosalloniBackEnd.csproj",
         "packagesPath": "C:\\Users\\38344\\.nuget\\packages\\",
         "outputPath": "F:\\AUTO\\AutosalloniBackEnd\\obj\\",
-=======
-    "C:\\Users\\dardi\\Desktop\\LabCourse\\THE-EAGLES\\AutosalloniBackEnd\\AutosalloniBackEnd.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\dardi\\Desktop\\LabCourse\\THE-EAGLES\\AutosalloniBackEnd\\AutosalloniBackEnd.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\dardi\\Desktop\\LabCourse\\THE-EAGLES\\AutosalloniBackEnd\\AutosalloniBackEnd.csproj",
-        "projectName": "AutosalloniBackEnd",
-        "projectPath": "C:\\Users\\dardi\\Desktop\\LabCourse\\THE-EAGLES\\AutosalloniBackEnd\\AutosalloniBackEnd.csproj",
-        "packagesPath": "C:\\Users\\dardi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dardi\\Desktop\\LabCourse\\THE-EAGLES\\AutosalloniBackEnd\\obj\\",
->>>>>>> 32156e7f01155eb20847a5566f050faaaad00345
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\dardi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\38344\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -58,9 +44,33 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[3.1.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.8, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
@@ -85,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

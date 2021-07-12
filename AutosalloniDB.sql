@@ -42,6 +42,44 @@ Create table City (
 	CityName varchar(500),
 )
 
+Create table Report (
+ ReportId int not null identity (1,1) primary key,
+ Employee varchar(500),
+ Department varchar(500),
+ Status varchar(500),
+ Description varchar(1000),
+ ReportTo varchar(500),
+ DateOf date
+)
+
+
+Create table Status(
+Id int not null identity(1,1) primary key,
+StatusName varchar(500)
+)
+
+insert into Status values ('IRegular-Employee')
+
+Create table Tasks (
+TaskId int not null identity (1,1) primary key,
+TaskName varchar(500),
+TaskDesc varchar(500),
+Employee varchar(500),
+Department varchar(500),
+Done date
+)
+
+Create table Sales(
+Id int not null identity (1,1) primary key,
+Automobile varchar(500),
+Employee varchar(500),
+Price Bigint,
+DateOfSale date
+)
+
+
+
+
 
 
 /*Dardi WORK */

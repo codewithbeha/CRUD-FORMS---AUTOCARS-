@@ -53,11 +53,7 @@ deleteVeh(vin){
       <div id="body">
         <h1>Welcome to our car-showroom </h1>
           <div id="content">
-<<<<<<< HEAD
             <image src={car} alt="image"/>
-=======
-            <img src={car} alt="image"/>
->>>>>>> 32156e7f01155eb20847a5566f050faaaad00345
             </div>
             </div>
     <Table className="mt-4" striped bordered hover size="sm">
@@ -76,21 +72,12 @@ deleteVeh(vin){
         <tbody>
             {veh.map(veh=>
                 <tr key={veh.VIN}>
-<<<<<<< HEAD
                     <td>{'XRKS'}{veh.VIN}</td>
                     <td>{veh.Brand}</td>
                     <td>{veh.Model}</td>
                     <td>{veh.VehicleYear}</td>
                     <td>{veh.VehiclePrice}{'€'}</td>
                     <td>{veh.Kilometers}{'KM'}</td>
-=======
-                    <td>{veh.VIN}</td>
-                    <td>{veh.Brand}</td>
-                    <td>{veh.Model}</td>
-                    <td>{veh.VehicleYear}</td>
-                    <td>{veh.VehiclePrice}</td>
-                    <td>{veh.Kilometers}</td>
->>>>>>> 32156e7f01155eb20847a5566f050faaaad00345
                     <td>{ <Image width="300px" height="300px" 
                 src={'http://localhost:5000/Images/'+veh.PhotoFileName}/>}</td>
                     <td>
