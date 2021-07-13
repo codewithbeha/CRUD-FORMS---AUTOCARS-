@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {Table} from 'react-bootstrap';
+import emplo from "../Pages/images/employees.jpg";
 import {Image} from 'react-bootstrap';
 
 import {Button,ButtonToolbar} from 'react-bootstrap';
@@ -31,7 +32,7 @@ export class Employee extends Component{
 
     deleteEmp(empid){
         if(window.confirm('Are you sure?')){
-            fetch('http://localhost:5000/api/employee'+empid,{
+            fetch('http://localhost:5000/api/employee/'+empid,{
                 method:'DELETE',
                 header:{'Accept':'application/json',
             'Content-Type':'application/json'}
@@ -46,6 +47,12 @@ export class Employee extends Component{
         let editModalClose=()=>this.setState({editModalShow:false});
         return (
             <div>
+                <div id="body">
+        <h1>Employees</h1>
+          <div id="content">
+            <img src={emplo} alt=""/>
+            </div>
+            </div>
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                         <tr>
@@ -64,30 +71,30 @@ export class Employee extends Component{
                         </tr>
                     </thead>
                     <tbody>
-                        {emps.map(emp=>
-                            <tr key={emp.EmployeeId}>
-                                <td>{emp.EmployeeId}</td>
-                                <td>{emp.EmployeeName}</td>
-                                <td>{emp.Department}</td>
-                                <td>{emp.Birthdate}</td>
-                                <td>{emp.Country}</td>
-                                <td>{emp.City}</td>
-                                <td>{emp.Street}</td>
-                                <td>{emp.Zip}</td>
-                                <td>{emp.Phone}</td>
+                        {emps.map(emps=>
+                            <tr key={emps.EmployeeId}>
+                                <td>{emps.EmployeeId}</td>
+                                <td>{emps.EmployeeName}</td>
+                                <td>{emps.Department}</td>
+                                <td>{emps.Birthdate}</td>
+                                <td>{emps.Country}</td>
+                                <td>{emps.City}</td>
+                                <td>{emps.Street}</td>
+                                <td>{emps.Zip}</td>
+                                <td>{emps.Phone}</td>
                                 <td>{ <Image width="100px" height="100px" 
-                src={'http://localhost:5000/Photos/'+emp.PhotoFileName}/>}</td>
-                                <td>{emp.PhotoFileName}</td>
+                src={'http://localhost:5000/Photos/'+emps.PhotoFileName}/>}</td>
+                                <td>{emps.PhotoFileName}</td>
                                 <td>
                                     <ButtonToolbar>
                                         <Button className="mr-2" variant="info"
                                         onClick={()=>this.setState({editModalShow:true,
-                                            empid:emp.EmployeeId, empname:emp.EmployeeName,empdep:emp.Department,empbday:emp.Birthdate, empcountry:emp.Country,empcity:emp.City,empstreet:emp.Street,empzip:emp.Zip,empphone:emp.Phone,photofilename:emp.PhotoFileName})}>
+                                            empid:emps.EmployeeId, empname:emps.EmployeeName,empdep:emps.Department,empbday:emps.Birthdate, empcountry:emps.Country,empcity:emps.City,empstreet:emps.Street,empzip:emps.Zip,empphone:emps.Phone,photofilename:emps.PhotoFileName})}>
                                                 Edit     
                                             </Button> 
                                             
                                             <Button className="mr-2" variant="danger"
-                                            onClick={()=>this.deleteEmp(emp.EmployeeId)}>
+                                            onClick={()=>this.deleteEmp(emps.EmployeeId)}>
                                                 Delete
                                             </Button>
 

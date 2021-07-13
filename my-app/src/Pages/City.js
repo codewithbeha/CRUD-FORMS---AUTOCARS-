@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {Table} from 'react-bootstrap';
+import citie from "../Pages/images/cities.jpg";
 
 import {Button,ButtonToolbar} from 'react-bootstrap';
 import {AddCityModal} from '../Models/AddCityModal';
@@ -45,6 +46,12 @@ export class City extends Component{
         let editModalClose=()=>this.setState({editModalShow:false});
         return (
             <div>
+                      <div id="body">
+        <h1>Cities</h1>
+          <div id="content">
+            <img src={citie} alt=""/>
+            </div>
+            </div>
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                         <tr>

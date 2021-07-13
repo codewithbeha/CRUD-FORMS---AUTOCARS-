@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {Table} from 'react-bootstrap';
+import country from "../Pages/images/countries.jpg";
 
 import {Button,ButtonToolbar} from 'react-bootstrap';
 import {AddCountryModal} from '../Models/AddCountryModal';
@@ -30,7 +31,7 @@ export class Country extends Component{
 
     deleteCountry(cid){
         if(window.confirm('Are you sure?')){
-            fetch('http://localhost:5000/api/country'+cid,{
+            fetch('http://localhost:5000/api/country/'+cid,{
                 method:'DELETE',
                 header:{'Accept':'application/json',
             'Content-Type':'application/json'}
@@ -45,6 +46,12 @@ export class Country extends Component{
         let editModalClose=()=>this.setState({editModalShow:false});
         return (
             <div>
+                      <div id="body">
+        <h1>Countries</h1>
+          <div id="content">
+            <img src={country} alt=""/>
+            </div>
+            </div>
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                         <tr>

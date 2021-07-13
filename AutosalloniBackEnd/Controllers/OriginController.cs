@@ -116,5 +116,28 @@ namespace AutosalloniBackEnd.Controllers
             return new JsonResult("Të dhënat u fshinë me sukses");
         }
 
+        [Route("GetAllAutomobileVIN")]
+
+        public JsonResult GetAllAutomobileVIN()
+        {
+            string query = @"
+                             select VIN from dbo.Automobile";
+            DataTable table = new DataTable();
+            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
+            SqlDataReader sqlDataReader;
+            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    sqlDataReader = myCommand.ExecuteReader();
+                    table.Load(sqlDataReader);
+                    sqlDataReader.Close();
+                    myCon.Close();
+                }
+            }
+            return new JsonResult(table);
+        }
+
     }
 }

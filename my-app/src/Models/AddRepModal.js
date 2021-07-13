@@ -1,38 +1,45 @@
 import React,{Component} from 'react';
-import {Modal,Button,Row,Col,Form,Image} from 'react-bootstrap';
+import {Modal, Button, Row, Col, Form } from 'react-bootstrap';
 
 export class AddRepModal extends Component{
     constructor(props){
         super(props);
-        this.state={empss:[],deps:[],sts:[]};
-        this.handleSubmit=this.handleSubmit.bind(this);
- 
+        this.state={emps:[],deps:[],sts:[]};
+        this.handleSubmit= this.handleSubmit.bind(this);
+      
     }
-
-   
+    
 
     componentDidMount(){
+        
         fetch('http://localhost:5000/api/employee')
         .then(response=>response.json())
         .then(data=>{
-            this.setState({emps:data});     
+            console.log(data);
+            this.setState({...this.state, emps:data});
+            
         });
         fetch('http://localhost:5000/api/department')
         .then(response=>response.json())
         .then(data=>{
-            this.setState({deps:data});     
+            console.log(data);
+            this.setState({...this.state,deps:data});
+            
         });
         fetch('http://localhost:5000/api/status')
         .then(response=>response.json())
         .then(data=>{
-            this.setState({sts:data});     
+            
+            console.log(data);
+            this.setState({...this.state,sts:data});
+            
         });
     }
 
     handleSubmit(event){
-        event.preventDefault();
+        console.log("DEBUGGING");
         fetch('http://localhost:5000/api/report',{
-            method:'PUT',
+            method:'POST',
             headers:{
                 'Accept':'application/json',
                 'Content-Type':'application/json'
@@ -45,6 +52,7 @@ export class AddRepModal extends Component{
                 Description:event.target.Description.value,
                 ReportTo:event.target.ReportTo.value,
                 DateOf:event.target.DateOf.value,
+
             })
         })
         .then(res=>res.json())
@@ -52,79 +60,70 @@ export class AddRepModal extends Component{
             alert(result);
         },
         (error)=>{
-            alert('Failed');
+            alert(error);
         })
     }
-
+    
     render(){
         return(
             <div className="container">
-
-<Modal
-    {...this.props}
-    size="lg"
-    aria-labelledby="contained-modal-title-vcenter"
-    centered
-    >
-
-        <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title-vcenter">
-                Add Report
-                   </Modal.Title>
-        </Modal.Header>
-
-        <Modal.Body>
-            <Row>
-                <Col sm={6}>
-                    
-                <Form onSubmit={this.handleSubmit}>
-                    <Form.Group controlId="ReportId">
-                            <Form.Label>ReportId</Form.Label>
-                            <Form.Control type="text" name="ReportId" required
-                            placeholder="ReportId"
-                            disabled
-                            defaultValue={this.props.rid}/>
-                        </Form.Group>
+                <Modal
+                    {...this.props}
+                    size="lg"
+                    aria-labelledby="contained-modal-title-vcenter"
+                    centered>
+                    <Modal.Header closeButton>
+                        <Modal.Title id="contained-modal-title-vcenter">
+                            Add Report
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Row>
+                            <Col sm={6}>
+                                <Form onSubmit={this.handleSubmit}>
 
                         <Form.Group controlId="Employee">
                             <Form.Label>Employee</Form.Label>
-                            <Form.Control as="select" defaultValue={this.props.empname}>
-                            {this.state.emps.map(emp=>
-                                <option key = {emp.EmployeeId}>{emp.EmployeetName}</option>
+                            <Form.Control as="select" 
+                            defaultValue={this.props.remployee}>
+                            {this.state.emps.map(emps=>
+                                <option key = {emps.EmployeeId}>{emps.EmployeeName}</option>
                                 )}
-                            </Form.Control> 
+                           </Form.Control>
                         </Form.Group>
 
                         <Form.Group controlId="Department">
                             <Form.Label>Department</Form.Label>
-                            <Form.Control as="select" defaultValue={this.props.depname}>
+                            <Form.Control as="select" 
+                            defaultValue={this.props.rdepartment}>
                             {this.state.deps.map(dep=>
                                 <option key = {dep.DepartmentId}>{dep.DepartmentName}</option>
                                 )}
-                            </Form.Control> 
+                           </Form.Control>
                         </Form.Group>
 
                         <Form.Group controlId="Status">
                             <Form.Label>Status</Form.Label>
-                            <Form.Control as="select" defaultValue={this.props.stsname}>
-                            {this.state.sts.map(s=>
-                                <option key = {s.StatusId}>{s.StatusName}</option>
+                            <Form.Control as="select" 
+                            defaultValue={this.props.rstatus}>
+                            {this.state.sts.map(sts=>
+                                <option key = {sts.Id}>{sts.StatusName}</option>
                                 )}
-                            </Form.Control> 
+                           </Form.Control>
                         </Form.Group>
 
                         <Form.Group controlId="Description">
                             <Form.Label>Description</Form.Label>
                             <Form.Control type="text" name="Description" required
-                            defaultValue={this.props.rdescription}
-                            placeholder="Description"/>
+                            placeholder="Description"
+                            defaultValue={this.props.rdescription}/>
                         </Form.Group>
 
                         <Form.Group controlId="ReportTo">
                             <Form.Label>ReportTo</Form.Label>
                             <Form.Control type="text" name="ReportTo" required
-                            defaultValue={this.props.rreportto}
-                            placeholder="ReportTo"/>
+                            placeholder="ReportTo"
+                            defaultValue={this.props.rreportto}/>
                         </Form.Group>
 
                         <Form.Group controlId="DateOf">
@@ -133,34 +132,27 @@ export class AddRepModal extends Component{
                             type="date"
                             name="DateOf"
                             required
-                            placeholder="DateOfReport"
-                            defaultValue={this.props.rdate}
+                            placeholder="DateOf"
+                            defaultValue={this.props.tdate}
                             />
                         </Form.Group>
+                    <Form.Group>
+                                        <Button variant="primary" type="submit">
+                                            Add Report
+                                        </Button>
+                                    </Form.Group>
+                                </Form>
+                            </Col>
 
-                        <Form.Group>
-                            <Button variant="primary" type="submit">
-                                Update Report
-                            </Button>
-                        </Form.Group>
 
-                    </Form>
-                </Col>
-
-                <Col sm={6}>
-                    <Image width="200px"  src={this.imagesrc}/>
-                    <input onChange={this.handleFileSelected} type="File"/>
-                </Col>
-            </Row>
-        </Modal.Body>
-
-        <Modal.Footer>
-            <Button variant="danger" onClick={this.props.onHide}>Close</Button>
-        </Modal.Footer>
-
-</Modal>
-
+                        </Row>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="danger" onClick={this.props.onHide}>Close</Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
         )
     }
+
 }

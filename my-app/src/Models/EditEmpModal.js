@@ -64,7 +64,7 @@ export class EditEmpModal extends Component{
             alert(result);
         },
         (error)=>{
-            alert(error);
+            alert('Deshtoi...');
         })
     }
     handleFileSelected(event){

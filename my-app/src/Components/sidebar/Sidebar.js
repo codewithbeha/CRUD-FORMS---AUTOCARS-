@@ -4,13 +4,11 @@ import {
   PermIdentity,
   Storefront,
   Accessibility,
-  BarChart,
   LocationCity,
   AttachMoney,
   DynamicFeed,
   Public,
   ChatBubbleOutline,
-  Report,
   DirectionsCar,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
@@ -66,7 +64,7 @@ export default function Sidebar() {
             </Link>
             <Link to="/report" className="link">
               <li className="sidebarListItem">
-                <BarChart className="sidebarIcon" />
+                <ChatBubbleOutline className="sidebarIcon" />
                 Report
               </li>
             </Link>
@@ -99,33 +97,24 @@ export default function Sidebar() {
                 Details
               </li>
             </Link>
-          
-            <li className="sidebarListItem">
-              <Report className="sidebarIcon" />
-              Reports
-            </li>
           </ul>
         </div>
 
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Jobs</h3>
           <ul className="sidebarList">
-            <Link to="/task" className="link">
+            <Link to="/tasks" className="link">
               <li className="sidebarListItem">
                 <DynamicFeed className="sidebarIcon" />
-                Task
+                Tasks
               </li>
             </Link>
-            <Link to="/payment" className="link">
+            <Link to="/sales" className="link">
               <li className="sidebarListItem">
                 <AttachMoney className="sidebarIcon" />
-                Payment
+                Sales
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <ChatBubbleOutline className="sidebarIcon" />
-              Task
-            </li>
             <Link to="/logout" className="link">
               <li className="sidebarListItem">
                 <PermIdentity className="sidebarIcon" />

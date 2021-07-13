@@ -69,17 +69,6 @@ Department varchar(500),
 Done date
 )
 
-Create table Sales(
-Id int not null identity (1,1) primary key,
-Automobile varchar(500),
-Employee varchar(500),
-Price Bigint,
-DateOfSale date
-)
-
-
-
-
 
 
 /*Dardi WORK */
@@ -118,6 +107,9 @@ create table Extras(
 	NumSeats int,
 	Cubic float,
 )
+
+drop table Extras
+
 insert into Extras values ('1001','5','White','Automatic','5','2.5')
 insert into Extras values ('1000','5','Black','Manual','5','2.0')
 select * from Extras
@@ -132,5 +124,14 @@ create table Details(
 )
 insert into Details values('1000','Summer-Tires','2-zones','Alcantara','Camera','Xenon')
 select * from Details
+
+Create table Sales(
+VIN int not null references Automobile(VIN),
+Primary key(VIN),
+Employee varchar(500),
+Price varchar(500),
+Details varchar(500),
+DateOfSale date
+)
 
 

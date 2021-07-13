@@ -48,7 +48,7 @@ export class AddEmpModal extends Component{
                 'Content-Type':'application/json'
             },
             body:JSON.stringify({
-                //EmployeeId:event.target.EmployeeId.value,   
+            //EmployeeId:event.target.EmployeeId.value,   
                 EmployeeName:event.target.EmployeeName.value,
                 Department:event.target.Department.value,
                 Birthdate:event.target.Birthdate.value,
@@ -118,9 +118,9 @@ export class AddEmpModal extends Component{
                         <Form.Group controlId="Department">
                             <Form.Label>Department</Form.Label>
                             <Form.Control as="select" 
-                            defaultValue={this.props.dep}>
-                            {this.state.deps.map(dep=>
-                                <option key = {dep.DepartmentId}>{dep.DepartmentName}</option>
+                            defaultValue={this.props.empdep}>
+                            {this.state.deps.map(deps=>
+                                <option key = {deps.DepartmentId}>{deps.DepartmentName}</option>
                                 )}
                             </Form.Control> 
                         </Form.Group>
@@ -139,8 +139,8 @@ export class AddEmpModal extends Component{
                         <Form.Group controlId="Country">
                             <Form.Label>Country</Form.Label>
                             <Form.Control as="select" defaultValue={this.props.empcountry}>
-                            {this.state.countries.map(c=>
-                                <option key = {c.CountryId}>{c.CountryName}</option>
+                            {this.state.countries.map(countries=>
+                                <option key = {countries.CountryId}>{countries.CountryName}</option>
                                 )}
                             </Form.Control> 
                         </Form.Group>
@@ -148,8 +148,8 @@ export class AddEmpModal extends Component{
                         <Form.Group controlId="City">
                             <Form.Label>City</Form.Label>
                             <Form.Control as="select" defaultValue={this.props.empcity}>
-                            {this.state.cities.map(ci=>
-                                <option key = {ci.CityId}>{ci.CityName}</option>
+                            {this.state.cities.map(cities=>
+                                <option key = {cities.CityId}>{cities.CityName}</option>
                                 )}
                             </Form.Control> 
                         </Form.Group>

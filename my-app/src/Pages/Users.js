@@ -1,5 +1,7 @@
 import React,{Component} from 'react';
 import {Table} from 'react-bootstrap';
+import user from "../Pages/images/users.jpg";
+
 
 import {Button,ButtonToolbar} from 'react-bootstrap';
 import {AddUsersModal} from '../Models/AddUsersModal';
@@ -45,6 +47,12 @@ export class Users extends Component{
         let editModalClose=()=>this.setState({editModalShow:false});
         return (
             <div>
+                <div id="body">
+        <h1>Users</h1>
+          <div id="content">
+            <img src={user} alt=""/>
+            </div>
+            </div>
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                         <tr>
@@ -57,23 +65,23 @@ export class Users extends Component{
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map(u=>
-                            <tr key={u.UserId}>
-                                <td>{u.UserId}</td>
-                                <td>{u.Username}</td>
-                                <td>{u.Email}</td>
-                                <td>{u.Password}</td>
-                                <td>{u.Role}</td>
+                        {users.map(users=>
+                            <tr key={users.UserId}>
+                                <td>{users.UserId}</td>
+                                <td>{users.Username}</td>
+                                <td>{users.Email}</td>
+                                <td>{users.Password}</td>
+                                <td>{users.Role}</td>
                                 <td>
                                     <ButtonToolbar>
                                         <Button className="mr-2" variant="info"
                                         onClick={()=>this.setState({editModalShow:true,
-                                         uid:u.UserId,uname:u.Username, uemail:u.Email ,upassword:u.Password, urole:u.Role})}>
+                                         uid:users.UserId,uname:users.Username, uemail:users.Email ,upassword:users.Password, urole:users.Role})}>
                                                 Edit
                                             </Button>
 
                                             <Button className="mr-2" variant="danger"
-                                            onClick={()=>this.deleteUser(u.UserId)}>
+                                            onClick={()=>this.deleteUser(users.UserId)}>
                                                 Delete
                                             </Button>
 

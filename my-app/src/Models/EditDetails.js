@@ -4,7 +4,20 @@ import {Modal,Button, Row, Col, Form} from 'react-bootstrap';
 export class EditDetails extends Component{
     constructor(props){
         super(props);
+        this.state={veh:[]};
         this.handleSubmit=this.handleSubmit.bind(this);
+    }
+
+    componentDidMount(){
+        
+        fetch('http://localhost:5000/api/automobile')
+        .then(response=>response.json())
+        .then(data=>{
+            console.log(data);
+            this.setState({...this.state, veh:data});
+            
+        });
+        
     }
 
     handleSubmit(event){
@@ -53,11 +66,14 @@ centered
             <Col sm={6}>
                 <Form onSubmit={this.handleSubmit}>
                 <Form.Group controlId="VIN">
-                        <Form.Label>VIN</Form.Label>
-                        <Form.Control type="text" name="VIN" required
-                        defaultValue={this.props.vin} 
-                        placeholder="VIN"/>
-                    </Form.Group>
+                            <Form.Label>VIN</Form.Label>
+                            <Form.Control as="select" 
+                            defaultValue={this.props.vin}>
+                            {this.state.veh.map(veh=>
+                                <option key = {veh.VIN}>{veh.VIN}</option>
+                                )}
+                            </Form.Control> 
+                        </Form.Group>
 
                     <Form.Group controlId="Tyres">
                         <Form.Label>Tyres</Form.Label>

@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import dep from "../Pages/images/deps.jpg";
 import {Table} from 'react-bootstrap';
 
 import {Button,ButtonToolbar} from 'react-bootstrap';
@@ -45,6 +46,12 @@ export class Department extends Component{
             let editModalClose=()=>this.setState({editModalShow:false});
             return (
                 <div>
+                    <div id="body">
+        <h1>Departments</h1>
+          <div id="content">
+            <img src={dep} alt=""/>
+            </div>
+            </div>
                     <Table className="mt-4" striped bordered hover size="sm">
                         <thead>
                             <tr>

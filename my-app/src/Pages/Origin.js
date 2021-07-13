@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
 import {Table} from 'react-bootstrap';
-import car from "./Factory.jpg"
-import {Image} from 'react-bootstrap';
+import car from "../Pages/images/Factory.jpg"
 
 import {Button,ButtonToolbar} from 'react-bootstrap';
 import {AddOrigin} from '../Models/AddOrigin';
@@ -49,7 +48,7 @@ export class Origin extends Component{
                     <div id="body">
         <h1>Origin of vehicle</h1>
           <div id="content">
-            <img src={car} alt="image"/>
+            <img src={car} alt=""/>
             </div>
             </div>
                     <Table className="mt-4" striped bordered hover size="sm">
@@ -65,7 +64,7 @@ export class Origin extends Component{
                         <tbody>
                             {origin.map(origin=>
                                 <tr key={origin.VIN}>
-                                    <td>{origin.VIN}</td>
+                                    <td>{'XRKS'}{origin.VIN}</td>
                                     <td>{origin.VehicleState}</td>
                                     <td>{origin.VehicleCity}</td>
                                     <td>{origin.VehicleZip}</td>

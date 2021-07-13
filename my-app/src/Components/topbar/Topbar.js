@@ -1,5 +1,6 @@
 import React from "react";
 import "./topbar.css";
+import photo from "../Images/point.png";
 import { NotificationsNone, Language, Settings } from "@material-ui/icons";
 
 export default function Topbar() {
@@ -7,7 +8,7 @@ export default function Topbar() {
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-          <span className="logo">Autosalloni - Dealer System Management</span>
+          <span className="logo"> ✰ Autosalloni - Dealer System Management ✰</span>
         </div>
         <div className="topRight">
           <div className="topbarIconContainer">

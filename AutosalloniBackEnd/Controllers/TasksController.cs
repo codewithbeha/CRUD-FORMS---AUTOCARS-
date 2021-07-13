@@ -83,7 +83,7 @@ namespace AutosalloniBackEnd.Controllers
         {
             string query = @"UPDATE dbo.Tasks SET
 
-                 TaskKind = '" + tas.TaskName + @"'
+                 TaskName = '" + tas.TaskName + @"'
                 ,TaskDesc = '" + tas.TaskDesc + @"'  
                 ,Employee = '" + tas.Employee + @"'
                 ,Department  = '" + tas.Department + @"'

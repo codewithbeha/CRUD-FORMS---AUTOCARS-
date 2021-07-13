@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {Table} from 'react-bootstrap';
-import car from "./Extras.jpg"
+import car from "../Pages/images/Extras.jpg"
 
 import {Button,ButtonToolbar} from 'react-bootstrap';
 import {AddExtras} from '../Models/AddExtras';
@@ -48,7 +48,7 @@ export class Extras extends Component{
                             <div id="body">
         <h1>Extras Search</h1>
           <div id="content">
-            <img src={car} alt="image"/>
+            <img src={car} alt=""/>
             </div>
             </div>
                     <Table className="mt-4" striped bordered hover size="sm">
@@ -66,7 +66,7 @@ export class Extras extends Component{
                         <tbody>
                             {extras.map(extras=>
                                 <tr key={extras.VIN}>
-                                    <td>{extras.VIN}</td>
+                                    <td>{'XRKS'}{extras.VIN}</td>
                                     <td>{extras.NumDoors}</td>
                                     <td>{extras.Color}</td>
                                     <td>{extras.Transmission}</td>

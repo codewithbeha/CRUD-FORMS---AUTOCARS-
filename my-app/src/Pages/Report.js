@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {Table} from 'react-bootstrap';
+import comp from "../Pages/images/comp.jpg";
 
 import {Button,ButtonToolbar} from 'react-bootstrap';
 import {AddRepModal} from '../Models/AddRepModal';
@@ -30,7 +31,7 @@ export class Report extends Component{
 
     deleteEmp(repid){
         if(window.confirm('Are you sure?')){
-            fetch('http://localhost:5000/api/report'+repid,{
+            fetch('http://localhost:5000/api/report/'+repid,{
                 method:'DELETE',
                 header:{'Accept':'application/json',
             'Content-Type':'application/json'}
@@ -45,6 +46,12 @@ export class Report extends Component{
         let editModalClose=()=>this.setState({editModalShow:false});
         return (
             <div>
+                <div id="body">
+        <h1>Reports</h1>
+          <div id="content">
+            <img src={comp} alt=""/>
+            </div>
+            </div>
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                         <tr>
@@ -60,26 +67,26 @@ export class Report extends Component{
                         </tr>
                     </thead>
                     <tbody>
-                        {reps.map(r=>
-                            <tr key={r.ReportId}>
-                                 <td>{r.ReportId}</td>
-                                 <td>{r.Employee}</td>
-                                 <td>{r.Department}</td>
-                                 <td>{r.Status}</td>
-                                 <td>{r.Description}</td>
-                                 <td>{r.ReportTo}</td>
-                                 <td>{r.DateOf}</td>
+                        {reps.map(reps=>
+                            <tr key={reps.ReportId}>
+                                 <td>{reps.ReportId}</td>
+                                 <td>{reps.Employee}</td>
+                                 <td>{reps.Department}</td>
+                                 <td>{reps.Status}</td>
+                                 <td>{reps.Description}</td>
+                                 <td>{reps.ReportTo}</td>
+                                 <td>{reps.DateOf}</td>
   
                                 <td>
                                     <ButtonToolbar>
-                                        <Button className="mr-2" variant="info"
+                                         <Button className="mr-2" variant="info"
                                         onClick={()=>this.setState({editModalShow:true,
-                                            rid:r.ReportId, remployee:r.Employee,rdepartment:r.Department,rstatus:r.Status, rdescription:r.Description,rreportto:r.ReportTo,rdate:r.DateOf})}>
+                                            rid:reps.ReportId, remployee:reps.Employee,rdepartment:reps.Department,rstatus:reps.Status, rdescription:reps.Description,rreportto:reps.ReportTo,rdate:reps.DateOf})}>
                                                 Edit     
-                                            </Button> 
+                                            </Button>  
                                             
                                             <Button className="mr-2" variant="danger"
-                                            onClick={()=>this.deleteEmp(r.ReportId)}>
+                                            onClick={()=>this.deleteEmp(reps.ReportId)}>
                                                 Delete
                                             </Button>
 

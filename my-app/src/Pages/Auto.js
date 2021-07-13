@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import car from "./Showroom.jpg"
+import car from "../Pages/images/Showroom.jpg"
 import './Auto.css'
 import {Table} from 'react-bootstrap';
 import {Image} from 'react-bootstrap';
@@ -46,20 +46,19 @@ deleteVeh(vin){
     const {veh, vin,vbrand,vmodel,vyear,vprice,vkilometers,photofilename}=this.state;
         let addModalClose=()=>this.setState({addModalShow:false});
         let editModalClose=()=>this.setState({editModalShow:false});
-        return(
-      
-         
-    <div>
+        return(  
+         <div>
       <div id="body">
         <h1>Welcome to our car-showroom </h1>
           <div id="content">
-            <image src={car} alt="image"/>
+            <img src={car} alt=""/>
             </div>
             </div>
+
     <Table className="mt-4" striped bordered hover size="sm">
         <thead>
             <tr>
-                <th>VIN</th>
+            <th>VIN</th>
             <th>Brand</th>
             <th>Model</th>
             <th>VehicleYear</th>

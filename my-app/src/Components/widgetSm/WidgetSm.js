@@ -4,7 +4,7 @@ import { Visibility } from "@material-ui/icons";
 export default function WidgetSm() {
   return (
     <div className="widgetSm">
-      <span className="widgetSmTitle">New Join Members</span>
+      <span className="widgetSmTitle">New Join Employee</span>
       <ul className="widgetSmList">
         <li className="widgetSmListItem">
           <img
@@ -13,8 +13,8 @@ export default function WidgetSm() {
             className="widgetSmImg"
           />
           <div className="widgetSmUser">
-            <span className="widgetSmUsername">Anna Keller</span>
-            <span className="widgetSmUserTitle">Software Engineer</span>
+          <span className="widgetSmUsername">Behar Abdyli</span>
+          <span className="widgetSmUserTitle">IT Software Engineer</span>
           </div>
           <button className="widgetSmButton">
             <Visibility className="widgetSmIcon" />
@@ -28,8 +28,8 @@ export default function WidgetSm() {
             className="widgetSmImg"
           />
           <div className="widgetSmUser">
-            <span className="widgetSmUsername">Anna Keller</span>
-            <span className="widgetSmUserTitle">Software Engineer</span>
+          <span className="widgetSmUsername">Dardan Shabani</span>
+          <span className="widgetSmUserTitle">IT</span>
           </div>
           <button className="widgetSmButton">
             <Visibility className="widgetSmIcon" />
@@ -43,8 +43,8 @@ export default function WidgetSm() {
             className="widgetSmImg"
           />
           <div className="widgetSmUser">
-            <span className="widgetSmUsername">Anna Keller</span>
-            <span className="widgetSmUserTitle">Software Engineer</span>
+          <span className="widgetSmUsername">Smajl Abdyli</span>
+          <span className="widgetSmUserTitle">IT Software Engineer</span>
           </div>
           <button className="widgetSmButton">
             <Visibility className="widgetSmIcon" />
@@ -58,8 +58,8 @@ export default function WidgetSm() {
             className="widgetSmImg"
           />
           <div className="widgetSmUser">
-            <span className="widgetSmUsername">Anna Keller</span>
-            <span className="widgetSmUserTitle">Software Engineer</span>
+          <span className="widgetSmUsername">Anna Kodra</span>
+          <span className="widgetSmUserTitle">Contabilist</span>
           </div>
           <button className="widgetSmButton">
             <Visibility className="widgetSmIcon" />
@@ -73,8 +73,8 @@ export default function WidgetSm() {
             className="widgetSmImg"
           />
           <div className="widgetSmUser">
-            <span className="widgetSmUsername">Anna Keller</span>
-            <span className="widgetSmUserTitle">Software Engineer</span>
+            <span className="widgetSmUsername">Anita Smajli</span>
+            <span className="widgetSmUserTitle">Service Tecnique</span>
           </div>
           <button className="widgetSmButton">
             <Visibility className="widgetSmIcon" />

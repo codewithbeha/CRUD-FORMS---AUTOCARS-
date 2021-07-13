@@ -9,7 +9,8 @@ import {Origin} from './Pages/Origin';
 import {Extras} from './Pages/Extras';
 import {Details} from './Pages/Details';
 import {Report} from './Pages/Report';
-import {Task} from './Pages/Task';
+import {Tasks} from './Pages/Tasks';
+import {Sales} from './Pages/Sales';
 import Home from './Pages/Home'; 
 import Topbar from "./Components/topbar/Topbar";
 import "./App.css";
@@ -60,8 +61,11 @@ function App() {
           <Route path="/report">
             <Report />
           </Route>
-          <Route path="/task">
-            <Task />
+          <Route path="/tasks">
+            <Tasks />
+          </Route>
+          <Route path="/sales">
+            <Sales />
           </Route>
           
           
